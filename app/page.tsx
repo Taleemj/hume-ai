@@ -6,6 +6,6 @@ export default async function Page() {
   if (!apiKey) {
     throw new Error();
   }
-
+  // wrapper component containing humeai voiceProvider wrapper component from SDK
   return <ClientComponent />;
 }
