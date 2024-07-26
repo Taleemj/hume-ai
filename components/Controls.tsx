@@ -14,7 +14,7 @@ export default function Controls() {
         >
           Hang up
         </button>
-        <p className="text-green-500 mt-2">Conected...</p>
+        <p className="text-green-500 mt-2">Connected.</p>
       </>
     );
   }
