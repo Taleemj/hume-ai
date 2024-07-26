@@ -1,12 +1,11 @@
 import ClientComponent from "@/components/ClientComponent";
-import { getHumeAccessToken } from "@/utils/getHumeAccessToken";
 
 export default async function Page() {
-  const accessToken = await getHumeAccessToken();
+  const apiKey = String(process.env.NEXT_PUBLIC_HUME_API_KEY);
 
-  if (!accessToken) {
+  if (!apiKey) {
     throw new Error();
   }
 
-  return <ClientComponent accessToken={accessToken} />;
+  return <ClientComponent />;
 }

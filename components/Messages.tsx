@@ -1,12 +1,13 @@
 "use client";
 import { useVoice } from "@humeai/voice-react";
 
-export default function Controls() {
+export default function Messages() {
   const { messages } = useVoice();
 
   return (
+    // component to display voices transcript users and humeai voice
     <div>
-      {/* {messages.map((msg, index) => {
+      {messages.map((msg, index) => {
         if (msg.type === "user_message" || msg.type === "assistant_message") {
           return (
             <div key={msg.type + index}>
@@ -17,7 +18,7 @@ export default function Controls() {
         }
 
         return null;
-      })} */}
+      })}
     </div>
   );
 }
