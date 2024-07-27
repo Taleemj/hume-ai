@@ -7,7 +7,7 @@ export default function Messages() {
   return (
     // component to display voices transcript users and humeai voice
     <div>
-      {messages.map((msg, index) => {
+      {/* {messages.map((msg, index) => {
         if (msg.type === "user_message" || msg.type === "assistant_message") {
           return (
             <div key={msg.type + index}>
@@ -18,7 +18,7 @@ export default function Messages() {
         }
 
         return null;
-      })}
+      })} */}
     </div>
   );
 }
