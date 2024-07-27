@@ -12,6 +12,7 @@ export default function Controls() {
   const captionsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    console.log("messages", messages);
     if (captionsRef.current) {
       captionsRef.current.scrollTop = captionsRef.current.scrollHeight;
     }
@@ -31,11 +32,18 @@ export default function Controls() {
           ref={captionsRef}
         >
           {messages.map((msg, index) => {
+            // Check if the message type is either user_message or assistant_message
             if (msg.type === "user_message" || msg.type === "assistant_message") {
+              // Determine the role label
+              const roleLabel = msg.message.role === "user" ? "You" : "EVI";
+
+              // Check the previous message to decide whether to show the role label
+              const showRoleLabel = index === 0 || messages[index - 1].type !== msg.type;
+
               return (
                 <div className="text-[17px] py-1" key={msg.type + index}>
-                  <div className="font-bold">{msg.message.role == "user" ? "You" : "EVI"}</div>
-                  <div>{msg.message.content}</div>
+                  {showRoleLabel && <div className="font-bold">{roleLabel}</div>}
+                  <div className="p-0 m-0">{msg.message.content}</div>
                 </div>
               );
             }
